@@ -1,0 +1,270 @@
+{
+	"info": {
+		"_postman_id": "8923ecbd-90d7-4c37-a583-8ced821e48b9",
+		"name": "Practice_Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "SigninAPIRequest",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"email\":\"jatinvsharma@gmail.com\",\n\t\"password\":\"123123123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://142.93.219.181:3000/user/signin",
+					"protocol": "http",
+					"host": [
+						"142",
+						"93",
+						"219",
+						"181"
+					],
+					"port": "3000",
+					"path": [
+						"user",
+						"signin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AddProductAPIRequest",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "60e1d49c-a9e7-4121-897b-c0235969fecc",
+						"exec": [
+							"//This is a comment !! Local JavaScript variable | Postman supports only JavaScript Programming Language",
+							"var myName= \"Subbu\";",
+							"var myAge= 28;",
+							"var mySalary=100000;",
+							"var gender=\"M\";",
+							"",
+							"//Print on Screen",
+							"console.log(myName);",
+							"console.log(myAge);",
+							"console.log(mySalary);",
+							"console.log(gender);",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "c437d191-3558-4af7-8853-88f2f5512bac",
+						"exec": [
+							"//console.log(myName)",
+							"console.log(\"I am executing after the request\");",
+							"pm.test(\"Response time is less than 200ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(200)   //Chai Assertion Library",
+							"});",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJsYXN0X21vZGlmaWVkIjoxNTc2MDg4NDkzNDgwLCJleHBpcmVfYXQiOjE1ODEyNzI0OTM0ODEsInBheWxvYWQiOnsiaWQiOjIsIm5hbWUiOiJKYXRpbiBTaGFybWEiLCJlbWFpbCI6ImphdGludnNoYXJtYUBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4iLCJtb2JpbGVfbnVtYmVyIjoiMTIzMTIzMTIzMSJ9fQ.bEXaxhSM_h90cJ8c8wpon4o23eT7Zi7zVX8aebuIfcM",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"prod_name\":\"AT_BATCH_NOV_25th\",\n\t\"prod_desc\": \"Subbu\",\n\t\"prod_price\": 100000\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://142.93.219.181:3000/api/v1/products",
+					"protocol": "http",
+					"host": [
+						"142",
+						"93",
+						"219",
+						"181"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateProductAPIRequest",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJsYXN0X21vZGlmaWVkIjoxNTc2MDg4NDkzNDgwLCJleHBpcmVfYXQiOjE1ODEyNzI0OTM0ODEsInBheWxvYWQiOnsiaWQiOjIsIm5hbWUiOiJKYXRpbiBTaGFybWEiLCJlbWFpbCI6ImphdGludnNoYXJtYUBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4iLCJtb2JpbGVfbnVtYmVyIjoiMTIzMTIzMTIzMSJ9fQ.bEXaxhSM_h90cJ8c8wpon4o23eT7Zi7zVX8aebuIfcM",
+						"type": "text"
+					},
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"prod_name\":\"AT_BATCH_NOV\",\n\t\"prod_desc\": \"Subbu_2094\",\n\t\"prod_price\": 100000\n}"
+				},
+				"url": {
+					"raw": "http://142.93.219.181:3000/api/v1/products/2094",
+					"protocol": "http",
+					"host": [
+						"142",
+						"93",
+						"219",
+						"181"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"products",
+						"2094"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SearchProductAPIRequest",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJsYXN0X21vZGlmaWVkIjoxNTc2MDg4NDkzNDgwLCJleHBpcmVfYXQiOjE1ODEyNzI0OTM0ODEsInBheWxvYWQiOnsiaWQiOjIsIm5hbWUiOiJKYXRpbiBTaGFybWEiLCJlbWFpbCI6ImphdGludnNoYXJtYUBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4iLCJtb2JpbGVfbnVtYmVyIjoiMTIzMTIzMTIzMSJ9fQ.bEXaxhSM_h90cJ8c8wpon4o23eT7Zi7zVX8aebuIfcM",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://142.93.219.181:3000/api/v1/products/search/boat",
+					"protocol": "http",
+					"host": [
+						"142",
+						"93",
+						"219",
+						"181"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"products",
+						"search",
+						"boat"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteProductAPIRequest",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJsYXN0X21vZGlmaWVkIjoxNTc2MDg4NDkzNDgwLCJleHBpcmVfYXQiOjE1ODEyNzI0OTM0ODEsInBheWxvYWQiOnsiaWQiOjIsIm5hbWUiOiJKYXRpbiBTaGFybWEiLCJlbWFpbCI6ImphdGludnNoYXJtYUBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4iLCJtb2JpbGVfbnVtYmVyIjoiMTIzMTIzMTIzMSJ9fQ.bEXaxhSM_h90cJ8c8wpon4o23eT7Zi7zVX8aebuIfcM",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://142.93.219.181:3000/api/v1/products/2093",
+					"protocol": "http",
+					"host": [
+						"142",
+						"93",
+						"219",
+						"181"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"products",
+						"2093"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "1088e1ba-3e77-402c-8ac6-aae1af3727db",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "3ce748e0-60be-46b6-96ea-fbfdf004ccaf",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
